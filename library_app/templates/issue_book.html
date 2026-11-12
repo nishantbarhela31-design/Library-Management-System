@@ -1,0 +1,7 @@
+<h2>Issue Book</h2>
+<form method="POST">{% csrf_token %}
+Book: <select name="book">{% for b in books %}<option value="{{ b.id }}">{{ b.title }}</option>{% endfor %}</select><br><br>
+Student: <select name="student">{% for s in students %}<option value="{{ s.id }}">{{ s.name }}</option>{% endfor %}</select><br><br>
+<button type="submit">Issue</button>
+</form>
+<a href="/">Home</a>

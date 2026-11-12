@@ -1,0 +1,29 @@
+<style>
+body{font-family:Arial;margin:30px;background:#f0f2f5}
+.card{background:#fff;padding:15px;margin:10px 0;border-radius:10px;box-shadow:0 2px 8px #0001}
+.btn{background:#007bff;color:#fff;padding:8px 12px;border-radius:6px;text-decoration:none;margin-right:5px}
+.btn-green{background:#28a745}
+</style>
+
+<h1>📚 Library Management System - by Nishant</h1>
+<a class="btn" href="/add-book/">+ Add Book</a>
+<a class="btn btn-green" href="/add-student/">+ Add Student</a>
+<a class="btn" href="/issue-book/">Issue Book</a>
+<a class="btn" href="/admin/">Admin Panel</a>
+
+<form method="GET" style="margin:20px 0">
+<input type="text" name="q" placeholder="Search book..."><button type="submit">Search</button>
+</form>
+
+<h2>All Books</h2>
+{% for b in books %}
+<div class="card"><b>{{ b.title }}</b> by {{ b.author }} | Available: {{ b.quantity }}</div>
+{% endfor %}
+
+<h2>Issued Books</h2>
+{% for i in issues %}
+<div class="card">{{ i.book.title }} - to - {{ i.student.name }} on {{ i.issue_date }} 
+<a class="btn btn-green" href="/return/{{ i.id }}/">Return</a></div>
+{% empty %}
+<p>No issued books</p>
+{% endfor %}

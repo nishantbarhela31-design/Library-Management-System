@@ -1,0 +1,9 @@
+<h2>Add Book</h2>
+<form method="POST">
+    {% csrf_token %}
+    Title: <input name="title"><br><br>
+    Author: <input name="author"><br><br>
+    Quantity: <input name="quantity" type="number"><br><br>
+    <button type="submit">Add</button>
+</form>
+<a href="/">Home</a>
